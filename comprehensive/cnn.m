@@ -1,0 +1,15 @@
+%%
+load('boostdata.mat');
+x=[1:1:1024];
+i=15000:16023;
+y=boostdata(i,2)';
+plot(x,y,'b-','MarkerSize',8);
+xlabel('输入向量');
+ylabel('输出向量');
+figure
+sum_squared_error_goal=0.002;
+spread_constant=1;
+net=newrb(x,y,sum_squared_error_goal,spread_constant);
+%%
+ a=sim(net,x);
+ plot(x,a,'k-','MarkerSize',8);

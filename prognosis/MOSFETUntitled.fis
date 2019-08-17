@@ -1,0 +1,50 @@
+[System]
+Name='MOSFETUntitled'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=10
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='f'
+Range=[0 1]
+NumMFs=4
+MF1='差':'trapmf',[-0.193 -0.173 0.125661375661376 0.167]
+MF2='中':'trapmf',[0.12 0.15 0.45 0.48]
+MF3='良':'trapmf',[0.45 0.48 0.78 0.8]
+MF4='优':'trapmf',[0.782 0.795 0.985 0.986]
+
+[Input2]
+Name='g'
+Range=[0 1]
+NumMFs=4
+MF1='差':'trapmf',[-0.36 -0.04 0.0859788359788359 0.118]
+MF2='中':'trapmf',[0.1 0.112 0.353 0.424603174603175]
+MF3='良':'trapmf',[0.376 0.393 0.78968253968254 0.835]
+MF4='优':'trapmf',[0.821 0.821 0.999 0.999]
+
+[Output1]
+Name='fg'
+Range=[0 1]
+NumMFs=3
+MF1='差':'gbellmf',[0.0569673015873016 2.33 -0.00538]
+MF2='良':'gbellmf',[0.306 7.29653146568444 0.5]
+MF3='优':'gbellmf',[0.0378 4.62956257890592 0.965]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (0.8) : 1
+2 1, 1 (0.8) : 1
+2 2, 2 (0.6) : 1
+2 3, 2 (0.8) : 1
+3 2, 2 (0.8) : 1
+3 3, 2 (1) : 1
+3 4, 3 (0.8) : 1
+4 3, 3 (0.8) : 1
+4 4, 3 (1) : 1
